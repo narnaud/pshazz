@@ -119,3 +119,16 @@ function Update-LocationWithHistory(
     }
     $global:pshazz_history_last = Get-Item -force $Path
 }
+
+function Start-NewWindow([String]$Path)
+{
+    <#
+    .SYNOPSIS
+        Start a new powershell window in a sepecif directory
+    .DESCRIPTION
+        The Start-NewWindow creates a new powershell window, starting in the directory pass as parameter.
+    #>
+    $cline = "`"/c start powershell.exe -noexit -c `"Set-Location '{0}'" -f $Path
+    cmd $cline
+}
+

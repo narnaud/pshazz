@@ -5,5 +5,5 @@
 	Copyright  =  'WTFPL'
 
 	ModuleToProcess = 'cd.psm1'
-	FunctionsToExport = @('Set-LocationWithHistory', 'Update-LocationWithHistory')
+	FunctionsToExport = @('Set-LocationWithHistory', 'Update-LocationWithHistory', 'Start-NewWindow')
 }
