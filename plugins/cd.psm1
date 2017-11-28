@@ -10,7 +10,7 @@ function Set-LocationWithHistory(
         The Set-LocationWithHistory stores all path the user is navigating too, and allow to go back to a previous one easily.
     .EXAMPLE
         Set-LocationWithHistory C:\Test
-        Change current directory to Test and save the previous directory. If the directory does not exist, propose to create it.
+        Change current directory to Test and save the previous directory.
     .EXAMPLE
         Set-LocationWithHistory
         Go to the home directory (by default $Env:USERPROFILE)
@@ -87,19 +87,6 @@ function Set-LocationWithHistory(
                 }
 
                 Push-Location $newLocation
-            }
-            else {
-                if($force) {
-                    $prompt = 'y'
-                }
-                else {
-                    $prompt = Read-Host "Folder not found. Create it? [y/n]"
-                }
-
-                if($prompt -eq 'y' -or $prompt -eq 'yes') {
-                    New-Item $newLocation
-                    Push-Location $newLocation
-                }
             }
         }
     }
